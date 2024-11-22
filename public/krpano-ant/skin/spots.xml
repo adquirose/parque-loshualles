@@ -1,0 +1,30 @@
+<krpano>
+    <spot name="ficha1" estado="nodisponible" html="1" ath="20.884" atv="76.693"/>
+    <spot name="ficha2" estado="nodisponible" html="2" ath="29.943" atv="71.150"/>
+    <spot name="ficha3" estado="nodisponible" html="3" ath="36.120" atv="65.917"/>
+    <spot name="ficha4" estado="nodisponible" html="4" ath="39.561" atv="60.886"/>
+    <spot name="ficha5" estado="nodisponible" html="5" ath="43.469" atv="55.914"/>
+    <spot name="ficha6" estado="nodisponible" html="6" ath="44.912" atv="51.195"/>
+    <spot name="ficha7" estado="nodisponible" html="7" ath="42.928" atv="47.571"/>
+    <spot name="ficha8" estado="nodisponible" html="8" ath="52.861" atv="39.694"/>
+    <spot name="ficha9" estado="nodisponible" html="9" ath="64.027" atv="43.803"/>
+    <spot name="ficha10" estado="nodisponible" html="10" ath="66.244" atv="47.483"/>
+    <spot name="ficha11" estado="nodisponible" html="11" ath="69.345" atv="52.029"/>
+    <spot name="ficha12" estado="nodisponible" html="12" ath="73.372" atv="56.550"/>
+    <spot name="ficha13" estado="nodisponible" html="13" ath="79.005" atv="61.410"/>
+    <spot name="ficha14" estado="nodisponible" html="14" ath="89.202" atv="66.480"/>
+    <spot name="ficha15" estado="disponible" html="15" ath="96.793" atv="72.686"/>
+    <spot name="ficha16" estado="disponible" html="16" ath="173.586" atv="84.265"/>
+    <spot name="ficha17" estado="vendido" html="17" ath="-135.823" atv="74.178"/>
+    <spot name="ficha18" estado="disponible" html="18" ath="-122.185" atv="59.684"/>
+    <spot name="ficha19" estado="disponible" html="19" ath="-126.672" atv="45.089"/>
+    <spot name="ficha20" estado="disponible" html="20" ath="-133.943" atv="36.339"/>
+    <spot name="ficha21" estado="disponible" html="21" ath="-134.059" atv="29.783"/>
+    <spot name="ficha22" estado="disponible" html="22" ath="-124.996" atv="34.216"/>
+    <spot name="ficha23" estado="disponible" html="23" ath="-119.738" atv="41.978"/>
+    <spot name="ficha24" estado="disponible" html="24" ath="-111.077" atv="50.543"/>
+    <spot name="ficha25" estado="disponible" html="25" ath="-100.781" atv="61.695"/>
+    <spot name="ficha26" estado="disponible" html="26" ath="-87.232" atv="70.840"/>
+    <spot name="ficha27" estado="disponible" html="27" ath="-61.056" atv="78.241"/>
+    <spot name="ficha28" estado="disponible" html="28" ath="-15.909" atv="78.674"/>
+</krpano>
