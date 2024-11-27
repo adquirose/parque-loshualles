@@ -17,4 +17,7 @@ export default defineConfig({
         include: "**/*.svg?react",
       }),
   ],
+  build: {
+    chunkSizeWarningLimit: 1600,
+  }
 })
