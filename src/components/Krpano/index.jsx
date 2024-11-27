@@ -97,12 +97,10 @@ const linkWs = id => {
 }
 const Ficha = ({ dataLote = {}, setVisibleFicha, visibleFicha }) => {
     const formatter = new Intl.NumberFormat('de-DE', {});
-    const valor = formatter.format(dataLote.valor)
+    // const valor = formatter.format(dataLote.valor)
     const superficie = formatter.format(dataLote.superficie)
     const estado = dataLote.estado == 'nodisponible' ? 'No disponible' : dataLote.estado
-    const deslindes = formatter.format(dataLote.deslindes)
     
-
     return(
         <FichaContainer $visibleFicha={visibleFicha}>
             {/* <Image src={`images/fichas/foto${dataLote.html}.jpg`}/> */}
@@ -121,7 +119,7 @@ const Ficha = ({ dataLote = {}, setVisibleFicha, visibleFicha }) => {
             </ContainerText>
             <ButtonGroup>
                 <Button type="Button" onClick={() => setVisibleFicha(!visibleFicha)}>CONTINUAR</Button>
-                <Button type="Button" onClick={() => window.open('/catalogo.pdf')}>DESCARGAR BROCHURE</Button>
+                <Button type="Button" onClick={() => window.open('/catalogo.pdf')}>DESCARGAR PLANO</Button>
             </ButtonGroup> 
         </FichaContainer>
     )
@@ -159,14 +157,13 @@ const Krpano = () => {
     })
     
     useEffect(() => {
-        const crearSpots = () => {
-            lotes.map((lote) => {
+        const crearSpots = (escena) => {
+            lotes.filter( lote => lote.escena === escena).map((lote) => {
                 callKrpano(`crear_hs(${lote.nombreSpot}, ${lote.ath}, ${lote.atv}, ${lote.estado}, ${lote.html});` )
             })
         }
-        if(nombreEscena === 'scene_master'){
-            crearSpots()
-        }
+        crearSpots(nombreEscena)
+
     },[callKrpano, lotes, nombreEscena])
 
     useEffect(()=> {
