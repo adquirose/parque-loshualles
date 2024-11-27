@@ -11,6 +11,17 @@ import editarLote from '../../firebase/editarLote.js'
 import SelectEstados from '../SelectEstados/index.jsx'
 import theme from '../../constants'
 
+const ESTADO = [
+    {id: 'disponible', texto: 'Disponible'},
+    {id: 'vendido', texto: 'Vendido'},
+    {id: 'reservado', texto: 'Reservado'},
+    {id: 'nodisponible', texto: 'NoDisponible'},
+]
+// const ETAPA = [
+//     { id:'etapa1', texto:'Etapa 1'},
+//     { id:'etapa2', texto:'Etapa 2'},
+//     { id:'etapa3', texto:'Etapa 3'}
+// ]
 const FormContainer = styled.div`
     border: 1px solid gray;
     max-width:360px;
@@ -68,29 +79,29 @@ const Input = styled.input`
         background: ${theme.grisClaro2};
     }
 `
-const TextArea = styled.textarea`
-    background: ${theme.grisClaro};
-    cursor: pointer;
-    border-radius: 0.25rem;
-    border: none;
-    max-height: 120px; 
-    width:100%;
-    min-width: 320px;
-    box-sizing:border-box;
-    padding-left:1.25rem;
-    margin-top:0.5rem;
-    padding-top:1rem;
+// const TextArea = styled.textarea`
+//     background: ${theme.grisClaro};
+//     cursor: pointer;
+//     border-radius: 0.25rem;
+//     border: none;
+//     max-height: 120px; 
+//     width:100%;
+//     min-width: 320px;
+//     box-sizing:border-box;
+//     padding-left:1.25rem;
+//     margin-top:0.5rem;
+//     padding-top:1rem;
     
-    font-size: 1.25rem; 
-    font-family:'Work Sans', sans-serif; 
-    transition: .5s ease all;
-    &:hover {
-        background: ${theme.grisClaro2};
-    }
-    @media(max-width:420px){
-        padding: 16px;
-    }
-`
+//     font-size: 1.25rem; 
+//     font-family:'Work Sans', sans-serif; 
+//     transition: .5s ease all;
+//     &:hover {
+//         background: ${theme.grisClaro2};
+//     }
+//     @media(max-width:420px){
+//         padding: 16px;
+//     }
+// `
 const InputLabel = styled.div`
     display:flex;
     width:100%;
@@ -120,12 +131,15 @@ const INITIAL_STATE_LOTE = {
     nombreLote:'',
     valor:'',
     superficie:'',
+    deslindes:'',
+    forma:'',
+    etapa:'',
     fecha: new Date()
 }
 const INITIAL_STATE_ALERTA = {
     active: false, tipo:'', mensaje:'' 
 }
-const FormularioLote = ({lote}) => {
+const FormularioLote = ({ lote }) => {
 
     const [data, setData] = useState({...INITIAL_STATE_LOTE})
     const [alerta, setAlerta] = useState({...INITIAL_STATE_ALERTA})
@@ -146,17 +160,23 @@ const FormularioLote = ({lote}) => {
                 navigate('/lista-de-lotes')
             }
         }
+        
     },[lote, user, navigate])
+
     const handleChange = event => {
+        
         setData({
             ...data, 
             [event.target.name]: event.target.value
         })
+        console.log(data)
     }
     const handleSubmit = event => {
         event.preventDefault()
-        const { fecha, valor, estado, nombreLote, superficie } = data 
-        const newLote = { valor, estado, nombreLote, superficie, fecha: getUnixTime(fecha), uid:user.uid }
+    
+        const { fecha, valor, estado, nombreLote, superficie, deslindes, etapa, forma } = data 
+        const newLote = { valor, estado, nombreLote, superficie, deslindes, etapa, forma, fecha: getUnixTime(fecha), uid:user.uid }
+
         if(lote){
             editarLote({
                 ...data,
@@ -184,19 +204,31 @@ const FormularioLote = ({lote}) => {
                 <Form onSubmit={handleSubmit}>
                     <InputLabel>
                         <Label>Nombre del Lote:</Label>
-                        <Input type="text" name="nombreLote" value={data.nombreLote} onChange={handleChange} placeholder="Nombre Lote"/>
+                        <Input type="text" disabled name="nombreLote" value={data.nombreLote} onChange={handleChange} placeholder="Nombre Lote"/>
                     </InputLabel>
                     <InputLabel>
                         <Label>Valor:</Label>
-                        <Input type="text" name="valor" value={data.valor} onChange={handleChange} placeholder="Valor UF"/>
+                        <Input type="text" disabled name="valor" value={data.valor} onChange={handleChange} placeholder="Valor UF"/>
                     </InputLabel>
                     <InputLabel>
                         <Label>Estado:</Label>
-                        <SelectEstados data={data} setData={setData}/>
+                        <SelectEstados data={data} setData={setData} dataSelect={ESTADO}/>
                     </InputLabel>
                     <InputLabel>
                         <Label>Superficie M2</Label>
                         <Input type="text" name="superficie" value={data.superficie} onChange={handleChange} placeholder="Superficie M2"/>
+                    </InputLabel>
+                    <InputLabel>
+                        <Label>Deslindes MTS</Label>
+                        <Input type="text" name="deslindes" value={data.deslindes} onChange={handleChange} placeholder="Deslindes MTS"/>
+                    </InputLabel>
+                    <InputLabel>
+                        <Label>Forma</Label>
+                        <Input type="text" name="forma" value={data.forma} onChange={handleChange} placeholder="Forma"/>
+                    </InputLabel>
+                    <InputLabel>
+                        <Label>Etapa</Label>
+                        <Input type="text" name="etapa" value={data.etapa} onChange={handleChange} placeholder="Etapa"/>
                     </InputLabel>
                     
                     <InputLabel>

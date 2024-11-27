@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react"
 import { db } from "../firebase/firebaseConfig"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, query, orderBy } from "firebase/firestore"
 
 const useObtenerLotes = () => {
     const [lotes, setLotes] = useState([])
 
     const fetchData = async() => {
-        const querySnapshot = await getDocs(collection(db, "proyectos","parque-los-hualles", "lotes"))
+        const querySnapshot = await getDocs(query(collection(db, "proyectos","parque-los-hualles", "lotes"), orderBy("orderByHtml")))
         querySnapshot.forEach((doc) => {
             const newLote = {
                 id:doc.id,
                 ...doc.data()
             }
-            setLotes( oldArray => [...oldArray, newLote])
+            setLotes( oldArray => [...oldArray, newLote]  )
         });
     }
     useEffect(()=> {

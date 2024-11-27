@@ -130,7 +130,6 @@ const Subtitulo = styled.h3`
     padding: 2.5rem 0; /* 40px */
 `;
  
-
 const ListaDeLotes = () => {
     const lotes = useObtenerLotes()
     const navigate = useNavigate()
@@ -145,7 +144,7 @@ const ListaDeLotes = () => {
             <ContainerTitulo>
                     <Span>Lote</Span>
                     <Span>Estado</Span>
-                    <Span>Valor UF</Span>
+                    <Span>Etapa</Span>
                     <Span>Editar</Span>
             </ContainerTitulo>
             <Lista>
@@ -159,7 +158,7 @@ const ListaDeLotes = () => {
                                 {lote.estado}
                             </Span>
                             <Span>
-                            {Number(lote.valor)}
+                                {lote.etapa}
                             </Span>
                             <ContenedorBotones>
                                 <BotonAccion to={`/edit/${lote.id}`} as={Link}><IconoEditar/></BotonAccion>

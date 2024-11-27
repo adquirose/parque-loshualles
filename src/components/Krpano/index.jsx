@@ -100,20 +100,24 @@ const Ficha = ({ dataLote = {}, setVisibleFicha, visibleFicha }) => {
     const valor = formatter.format(dataLote.valor)
     const superficie = formatter.format(dataLote.superficie)
     const estado = dataLote.estado == 'nodisponible' ? 'No disponible' : dataLote.estado
+    const deslindes = formatter.format(dataLote.deslindes)
+    
+
     return(
         <FichaContainer $visibleFicha={visibleFicha}>
             {/* <Image src={`images/fichas/foto${dataLote.html}.jpg`}/> */}
             <ContainerTitulo>
-                <Titulo>Lote {dataLote.nombreLote}</Titulo>
+                <Titulo>Nº Lote {dataLote.nombreLote}</Titulo>
                 <Button $background="none" onClick={() => window.open(linkWs(dataLote.html),'blank')}>
                     <LogoWhatsapp fill="black" width="36" height="36"/>
                 </Button>
             </ContainerTitulo>
             <ContainerText>
-                <P>Estado: { estado }</P>
-                <P>Valor: $ { valor }</P>
+                <P>Disponibilidad: { estado }</P>
+                <P>Etapa Nº: {dataLote.etapa}</P>
                 <P>Superficie: { superficie } M2</P>
-                <P>{dataLote.caracteristica}</P>
+                <P>Deslindes: {dataLote.deslindes} M</P>
+                <P>Forma: {dataLote.forma}</P>
             </ContainerText>
             <ButtonGroup>
                 <Button type="Button" onClick={() => setVisibleFicha(!visibleFicha)}>CONTINUAR</Button>

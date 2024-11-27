@@ -31,9 +31,8 @@ function App() {
   
   const renderSection = () => {
     switch (sectionActiva) {
-      case "proyecto":{
+      case "proyecto":
         return <Proyecto/>
-      }
       case "ubicacion":
         return <Ubicacion/>
       case "galeria":

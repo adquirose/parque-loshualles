@@ -62,16 +62,12 @@ const Opcion = styled.div`
     }
 `;
 // eslint-disable-next-line react/prop-types
-const SelectEstados = ({ data, setData }) => {
+const SelectEstados = ({ data, setData, dataSelect }) => {
 
     const [mostrarSelect, setMostrarSelect] = useState(false)
     
-    const estados = [
-        {id: 'disponible', texto: 'Disponible'},
-        {id: 'vendido', texto: 'Vendido'},
-        {id: 'reservado', texto: 'Reservado'},
-        {id: 'nodisponible', texto: 'NoDisponible'},
-    ]
+    const estados = dataSelect
+    
     const handleOnClick = (event) => {
         setData({...data, estado: event.currentTarget.dataset.valor})
     }

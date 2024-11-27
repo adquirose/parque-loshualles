@@ -25,19 +25,19 @@ const slideOut = keyframes`
     }
 `;
 const ContainerNav = styled.div`
-    width:280px;
+    width:180px;
     opacity:0;
     position:absolute;
     top:10px;
     z-index:4;
     border-radius:7px;
-    background-color:rgba(255,255,255,0.7);
+    background-color:rgba(255,255,255,0.9);
     animation:${props => props.$animation} 0.5s;
     animation-fill-mode: forwards;
 `
 const List = styled.ul`
     margin:0;
-    padding:3rem 0;
+    padding:1.5rem 0;
     list-style:none;
     display:flex;
     flex-direction:column;
@@ -46,9 +46,9 @@ const List = styled.ul`
     width:100%;
 `
 const Item = styled.li`
-    padding: 0.5rem 1.75rem;
+    padding: 0.6rem 1.5rem;
     line-height:2;
-    font-size:1.25rem;
+    font-size:1.2rem;
     color:black;
     cursor:pointer;
     &:hover{
@@ -91,9 +91,9 @@ const Navbar = ({handleClick}) => {
     return(
         <>  
             <ContainerNav $animation={animation}>
-                <div style={{position:'absolute', top:'10px', right:'10px', zIndex:'10'}}>
+                <div style={{position:'absolute', top:'5px', right:'5px', zIndex:'10'}}>
                     <Button onClick={handleAnimation}>
-                        <ERemove width={32} height={32}/>
+                        <ERemove width={25} height={25}/>
                     </Button>
                 </div>
                 <List>
