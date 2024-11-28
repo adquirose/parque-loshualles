@@ -158,7 +158,7 @@ const Krpano = () => {
     
     useEffect(() => {
         const crearSpots = (escena) => {
-            lotes.filter( lote => lote.escena === escena).map((lote) => {
+            lotes.filter( lote => lote.escena === escena || escena === 'scene_master').map((lote) => {
                 callKrpano(`crear_hs(${lote.nombreSpot}, ${lote.ath}, ${lote.atv}, ${lote.estado}, ${lote.html});` )
             })
         }
