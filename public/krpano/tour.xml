@@ -25,8 +25,8 @@
 	               tooltips_thumbs="false"
 	               tooltips_hotspots="false"
 	               tooltips_mapspots="false"
-	               loadscene_flags="MERGE"
-	               loadscene_blend="BLEND(0.5)"
+	               loadscene_flags="KEEPLOOKAT"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
 	               controlbar_offset="20"
 	               />
 	<!-- set optional skin logo url -->
