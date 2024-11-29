@@ -119,7 +119,7 @@ const Ficha = ({ dataLote = {}, setVisibleFicha, visibleFicha }) => {
             </ContainerText>
             <ButtonGroup>
                 <Button type="Button" onClick={() => setVisibleFicha(!visibleFicha)}>CONTINUAR</Button>
-                <Button type="Button" onClick={() => window.open('/catalogo.pdf')}>DESCARGAR PLANO</Button>
+                <Button type="Button" onClick={() => window.open('/plano.pdf')}>DESCARGAR PLANO</Button>
             </ButtonGroup> 
         </FichaContainer>
     )
